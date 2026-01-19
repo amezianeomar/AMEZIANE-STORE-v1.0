@@ -4,12 +4,25 @@
     "framework": null,
     "functions": {
         "api/index.php": {
-            "runtime": "vercel-php@0.7.1"
+            "runtime": "vercel-php@0.6.0"
         }
     },
     "routes": [
         {
-            "handle": "filesystem"
+            "src": "/build/(.*)",
+            "dest": "/build/$1"
+        },
+        {
+            "src": "/assets/(.*)",
+            "dest": "/assets/$1"
+        },
+        {
+            "src": "/favicon.png",
+            "dest": "/favicon.png"
+        },
+        {
+            "src": "/favicon.ico",
+            "dest": "/favicon.ico"
         },
         {
             "src": "/(.*)",
