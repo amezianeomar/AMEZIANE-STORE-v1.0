@@ -1,7 +1,6 @@
 <nav class="bg-brand-surface border-b border-white/10 relative z-50" x-data="{ mobileMenuOpen: false }">
     <div class="container mx-auto px-4">
         <div class="flex items-center justify-between h-20">
-            <!-- Logo -->
             <a href="{{ route('home') }}" class="flex items-center space-x-2 group z-50 relative">
                 <div class="w-10 h-10 bg-gradient-to-br from-brand-violet to-brand-magenta rounded flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(240,0,255,0.5)]">
                     <span class="font-display font-bold text-xl text-white">A</span>
@@ -11,22 +10,27 @@
                 </span>
             </a>
 
-            <!-- Desktop Menu Items -->
             <div class="hidden md:flex space-x-8">
                 <a href="{{ route('home') }}" class="font-display text-sm font-medium text-gray-300 hover:text-brand-neon transition-colors uppercase tracking-widest hover:border-b-2 hover:border-brand-neon py-2 {{ request()->routeIs('home') ? 'text-brand-neon border-b-2 border-brand-neon' : '' }}">
                     Accueil
                 </a>
+                
                 <a href="{{ route('produits.categorie', 'consoles') }}" class="font-display text-sm font-medium text-gray-300 hover:text-brand-neon transition-colors uppercase tracking-widest hover:border-b-2 hover:border-brand-neon py-2 {{ request()->is('produits/consoles') ? 'text-brand-neon border-b-2 border-brand-neon' : '' }}">
                     Consoles
                 </a>
                 <a href="{{ route('produits.categorie', 'peripheriques') }}" class="font-display text-sm font-medium text-gray-300 hover:text-brand-neon transition-colors uppercase tracking-widest hover:border-b-2 hover:border-brand-neon py-2 {{ request()->is('produits/peripheriques') ? 'text-brand-neon border-b-2 border-brand-neon' : '' }}">
                     Périphériques
                 </a>
+
+                <a href="{{ route('a_propos') }}" class="font-display text-sm font-medium text-gray-300 hover:text-brand-neon transition-colors uppercase tracking-widest hover:border-b-2 hover:border-brand-neon py-2 {{ request()->routeIs('a_propos') ? 'text-brand-neon border-b-2 border-brand-neon' : '' }}">
+                    À Propos
+                </a>
+                <a href="{{ route('contact') }}" class="font-display text-sm font-medium text-gray-300 hover:text-brand-neon transition-colors uppercase tracking-widest hover:border-b-2 hover:border-brand-neon py-2 {{ request()->routeIs('contact') ? 'text-brand-neon border-b-2 border-brand-neon' : '' }}">
+                    Contact
+                </a>
             </div>
 
-            <!-- Mobile Menu Button -->
             <div class="md:hidden z-50 relative">
-                <!-- Hamburger Icon -->
                 <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-white hover:text-brand-neon focus:outline-none transition-colors p-2">
                     <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -37,31 +41,22 @@
         </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
     <div x-show="mobileMenuOpen" 
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 transform -translate-y-full"
          x-transition:enter-end="opacity-100 transform translate-y-0"
          x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100 transform translate-y-0"
-         x-transition:leave-end="opacity-0 transform -translate-y-full"
          class="md:hidden fixed inset-0 bg-brand-dark/95 backdrop-blur-xl z-40 flex flex-col pt-32 px-6 space-y-6 overflow-y-auto"
          x-cloak>
          
-        <a href="{{ route('home') }}" 
-           class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon hover:bg-white/5 transition-all rounded {{ request()->routeIs('home') ? 'text-brand-neon bg-white/5' : 'text-white' }}">
-            Accueil
-        </a>
-        <a href="{{ route('produits.categorie', 'consoles') }}" 
-           class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon hover:bg-white/5 transition-all rounded {{ request()->is('produits/consoles') ? 'text-brand-neon bg-white/5' : 'text-white' }}">
-            Consoles
-        </a>
-        <a href="{{ route('produits.categorie', 'peripheriques') }}" 
-           class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon hover:bg-white/5 transition-all rounded {{ request()->is('produits/peripheriques') ? 'text-brand-neon bg-white/5' : 'text-white' }}">
-            Périphériques
-        </a>
+         <a href="{{ route('home') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon {{ request()->routeIs('home') ? 'text-brand-neon' : 'text-white' }}">Accueil</a>
+         <a href="{{ route('produits.categorie', 'consoles') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon {{ request()->is('produits/consoles') ? 'text-brand-neon' : 'text-white' }}">Consoles</a>
+         <a href="{{ route('produits.categorie', 'peripheriques') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon {{ request()->is('produits/peripheriques') ? 'text-brand-neon' : 'text-white' }}">Périphériques</a>
+         
+         <a href="{{ route('a_propos') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon {{ request()->routeIs('a_propos') ? 'text-brand-neon' : 'text-white' }}">À Propos</a>
+         <a href="{{ route('contact') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon {{ request()->routeIs('contact') ? 'text-brand-neon' : 'text-white' }}">Contact</a>
 
-        <!-- Mobile Footer Info -->
+         <!-- Mobile Footer Info -->
         <div class="mt-auto pb-10 text-center">
             <p class="text-gray-500 text-sm font-sans uppercase tracking-widest mb-4">Suivez-nous</p>
             <div class="flex justify-center space-x-8">

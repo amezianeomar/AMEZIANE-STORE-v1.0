@@ -64,3 +64,12 @@ Route::get('/produits/{cat}', function ($cat) use ($produits) {
         'liste' => $produits[$cat]
     ]);
 })->name('produits.categorie');
+
+Route::get('/a-propos', function () {
+    return view('A_propos');
+})->name('a_propos');
+
+Route::get('/contact', function () {
+    return view('Contact');
+})->name('contact');
+
