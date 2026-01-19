@@ -6,7 +6,7 @@ Ce fichier `README.md` est le **document de référence complet** du projet. Il 
 
 ## 📋 Présentation du Projet
 
-**AMEZIANE-STORE** est une application E-commerce développée avec **Laravel**, spécialisée dans le matériel de gaming. Elle respecte les contraintes de l'Atelier 3 tout en proposant une interface moderne et immersive.
+**AMEZIANE-STORE** est une application E-commerce développée avec **Laravel**, spécialisée dans le matériel de gaming. Elle respecte les contraintes de l'Atelier 3 & 4 tout en proposant une interface moderne et immersive.
 
 ### 🛠 Stack Technique
 
